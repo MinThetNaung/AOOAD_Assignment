@@ -9,6 +9,12 @@ namespace AOOAD_Assignment
     //Administrator is a sub-class of Employee
     class Administrator : Employee
     {
-        //public static Administrator()
+        public Administrator(string name, int employeeid, int rank, string typeofpolicysold)
+        {
+            EmployeeName = name;
+            EmployeeID = employeeid;
+            Rank = rank;
+            TypeOfPolicySold = typeofpolicysold;
+        }
     }
 }

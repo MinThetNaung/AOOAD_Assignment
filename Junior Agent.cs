@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Assignment
 {
-    class Junior_Agent
+    // Junior Agent is a sub-class of Employee
+    class Junior_Agent : Employee
     {
+        public Junior_Agent(string name, int employeeid, int rank, string typeofpolicysold)
+        {
+            EmployeeName = name;
+            EmployeeID = employeeid;
+            Rank = rank;
+            TypeOfPolicySold = typeofpolicysold;
+        }
     }
 }
