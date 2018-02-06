@@ -10,7 +10,6 @@ namespace AOOAD_Assignment
 {
     class Main_Program
     {
-        
 
         //creating employee list
         public static List<Employee> EmployeeList = new List<Employee>();
@@ -99,7 +98,7 @@ namespace AOOAD_Assignment
                         }
                         else if (choice == "2") {
                             Console.WriteLine("Enter Full Name on Credit Card: ");
-                            string userCreditName = Convert.ToString(Console.ReadLine());
+                            string userName = Convert.ToString(Console.ReadLine());
 
                             Console.WriteLine("Enter Credit Card Number: ");
                             string userCreditNo = Convert.ToString(Console.ReadLine());
@@ -113,19 +112,16 @@ namespace AOOAD_Assignment
                             Console.WriteLine("Enter Pin: ");
                             string userCreditPin = Convert.ToString(Console.ReadLine());
 
-                            Console.WriteLine("Select Insurance Policy (Medical/Car/Travel): ");
-                            string userPayItem = Convert.ToString(Console.ReadLine());
-
                             Console.WriteLine("Enter Payment Amount: ");
                             double userPayAmt = Convert.ToDouble(Console.ReadLine());
 
                             //Append to Receipt List
-                            Receipt r1 = new Receipt(DateTime.Now, userCreditName, userPayItem, userPayAmt);
-                            receiptList.Add(r1);
+                            Receipt r1 = new Receipt(DateTime.Now, userName, userPayAmt);
+                            ReceiptList.Add(r1);
 
                             //Display Receipt
-                            Console.WriteLine("{0,-25} {1,-20} {2,-15} {3,-15}", "Date & Time", "Client Name", "Item", "Payment Amount");
-                            Console.WriteLine("{0,-25} {1,-20} {2,-15} {3,-15}", DateTime.Now, r1.ClientName, r1.PaymentItem, r1.PaymentAmt);
+                            Console.WriteLine("{0,-25} {1,-20} {2,-15}", "Date & Time", "Client Name", "Payment Amount");
+                            Console.WriteLine("{0,-25} {1,-20} {2,-15}", DateTime.Now, userName, userPayAmt);
                             Console.WriteLine("Paid");
                         }
                         else
