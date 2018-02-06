@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
+using System.Data;
 
 namespace AOOAD_Assignment
 {
     class Main_Program
     {
+        
+
         //creating employee list
         public static List<Employee> EmployeeList = new List<Employee>();
         public static List<Junior_Agent> JuniorAgentList = new List<Junior_Agent>();
@@ -111,7 +115,7 @@ namespace AOOAD_Assignment
         
        
       //jiayu part not done need the list parts from you the parameters (cinemaList, movieList, screeningList);
-        public void displayInsurancePolicyList(List<InsurancePolicy> InsurancePolicyList)
+        public static void displayInsurancePolicyList(List<InsurancePolicy> InsurancePolicyList)
         {
             int count = 1;
             Console.WriteLine("{0, -4}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", "No ", "Title", "Duration", "Genre", "Classification", "Opening Date");
@@ -181,6 +185,63 @@ namespace AOOAD_Assignment
 
         }
 
+        public static void database()
+        {
+            //Customer List
+            Customer customer1 = new Customer("0001", "Bunny", "Mandalay");
+            CustomerList.Add(customer1);
+
+            Customer customer2 = new Customer("0002", "Yamin", "Pathein");
+            CustomerList.Add(customer2);
+
+            Customer customer3 = new Customer("0003", "Sonia", "Singapore");
+            CustomerList.Add(customer3);
+
+
+            //InsurancePolicy List
+
+            //Travel
+            Travel_Insurance travel1 = new Travel_Insurance("Active", 0001, "Follow the rules.", "100", "Credit Card", new DateTime(2010 - 05 - 14), new DateTime(2012 - 05 - 14), "Monthly",200);
+            TravelInsuranceList.Add(travel1);
+            InsurancePolicyList.Add(travel1);
+
+            //Car
+            Car_Insurance car1 = new Car_Insurance("Lapsed", 0002, "Follow the rules.", "100", "Cheque", new DateTime(2013 - 08 - 14), new DateTime(2015 - 08 - 14), "Yearly", 100);
+            CarInsuranceList.Add(car1);
+            InsurancePolicyList.Add(car1);
+
+            //Medical
+            Medical_Insurance medical1 = new Medical_Insurance("Out of Service!", 0003, "Follow the rules.", "100", "Credit Card", new DateTime(2016 - 02 - 06), new DateTime(2018 - 02 - 06), "One-Time", 1000);
+            MedicalInsuranceList.Add(medical1);
+            InsurancePolicyList.Add(medical1);
+
+
+            //Employee List
+
+            //Junior Agent
+            Junior_Agent junior1 = new Junior_Agent("Leo", "0001", 2, "Travel & Car");
+            JuniorAgentList.Add(junior1);
+            EmployeeList.Add(junior1);
+
+            //Agent
+            Agent agent1 = new Agent("Ye Yint", "0002", 5, "Travel & Medical");
+            AgentList.Add(agent1);
+            EmployeeList.Add(agent1);
+
+            //Senior Agent
+            Senior_Agent senior1 = new Senior_Agent("Jia Yu", "0003", 6, "Medical & Car");
+            SeniorAgentList.Add(senior1);
+            EmployeeList.Add(senior1);
+
+
+            //Administrator
+            Administrator admin1 = new Administrator("Sherlock", "0004", 1, "Car");
+            AdministratorList.Add(admin1);
+            EmployeeList.Add(admin1);
+
+
+
+        }
 
     }
 }
