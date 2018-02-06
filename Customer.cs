@@ -9,12 +9,12 @@ namespace AOOAD_Assignment
     class Customer
     {
         //attributes
-        private int userid;
+        private string userid;
         private string username;
         private string useraddress;
 
         //creating property for each attribute
-        public int UserID
+        public string UserID
         {
             get; set;
         }
@@ -29,10 +29,17 @@ namespace AOOAD_Assignment
         }
 
         //to create a customer list
-        public Customer()
+        public Customer(string userid, string username, string useraddress )
+        {
+            UserID = userid;
+            UserName = username;
+            UserAddress = useraddress;
+        }
+        
+        //to view policy
+        public void viewPolicy(string userid)
         {
 
         }
-        
     }
 }
