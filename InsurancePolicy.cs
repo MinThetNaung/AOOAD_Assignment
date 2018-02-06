@@ -8,7 +8,9 @@ namespace AOOAD_Assignment
 {
     class InsurancePolicy
     {
+        
         private string status;
+        private string typesOfPolicy;
         private int policyid;
         private string termsNcondition;
         private string payout;  // different policy have different payout
@@ -17,6 +19,7 @@ namespace AOOAD_Assignment
         private DateTime endDate;
         private string premiumType; // One-time payment, periodic payment (monthly or yearly)
         private double premiumPrice;
+        
 
        // public List<InsurancePolicy> PolicyList;
 
@@ -24,9 +27,14 @@ namespace AOOAD_Assignment
         private Employee employee;
         private Customer customer;
         private Rider rider;
-
+        
         //Creating property of each attribute
+        
         public string Status
+        {
+            get; set;
+        }
+        public string TypesOfPolicy
         {
             get; set;
         }
@@ -62,6 +70,7 @@ namespace AOOAD_Assignment
         {
             get; set;
         }
+       
 
         public Employee Employee
         {
@@ -76,13 +85,17 @@ namespace AOOAD_Assignment
             get; set;
         }
 
+        public InsurancePolicy()
+        {
 
+        }
         
 
-        // to edit the policy
-        /*public InsurancePolicy(string status, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)
+        // to store the data from creating the policy in the main program
+        public InsurancePolicy(string status, string typesOfPolicy, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)
         {
             Status = status;
+            TypesOfPolicy = typesOfPolicy;
             PolicyIdentification = policyid;
             TermsAndCondition = termsNcondition;
             PayOut = payout;
@@ -92,6 +105,6 @@ namespace AOOAD_Assignment
             PremiumType = premiumType;
             PremiumPrice = premiumPrice;
 
-        }*/
+        }
     }
 }

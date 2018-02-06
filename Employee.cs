@@ -11,7 +11,7 @@ namespace AOOAD_Assignment
         //attributes
         private string employeename;
         private string employeeid;
-        private int rank;
+        private string rank;
         private string typeofpolicysold;
 
         //creating property of each attribute
@@ -23,7 +23,7 @@ namespace AOOAD_Assignment
         {
             get; set;
         }
-        public int Rank
+        public string Rank
         {
             get; set;
         }
@@ -44,11 +44,6 @@ namespace AOOAD_Assignment
 
         }
 
-        //to create policy
-        public void CreatePolicy()
-        {
-
-        }
         
         
     }

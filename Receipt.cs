@@ -39,7 +39,11 @@ namespace AOOAD_Assignment
             get; set;
         }
 
-        public Receipt() { }
+        //to store data
+        public Receipt()
+        {
+
+        }
 
         public Receipt(DateTime a, string b, double c)
         {

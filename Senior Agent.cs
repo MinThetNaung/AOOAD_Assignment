@@ -9,7 +9,7 @@ namespace AOOAD_Assignment
     // Senior Agent is a sub-class of Employee
     class Senior_Agent : Employee
     {
-        public Senior_Agent(string name, string employeeid, int rank, string typeofpolicysold)
+        public Senior_Agent(string name, string employeeid, string rank, string typeofpolicysold)
         {
             EmployeeName = name;
             EmployeeID = employeeid;

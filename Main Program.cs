@@ -33,6 +33,7 @@ namespace AOOAD_Assignment
         //implementation of the program
         static void Main(string[] args)
         {
+            start:
             database();   
             Console.WriteLine("          Welcome from our Life Provident System! \n" +
                               "..........................................................\n"+
@@ -64,6 +65,7 @@ namespace AOOAD_Assignment
                     y = checkEmployee(x);
                     if (y == "Varified")
                     {
+                        begin:
                         Console.WriteLine("=============== Main Menu=================\n" +
                                           "1.Create Insurance Policy                 \n" +
                                           "2.Edit Insurance Policy                   \n" +
@@ -77,26 +79,61 @@ namespace AOOAD_Assignment
                         switch(choice)
                         {
                             case "1":
-                                createPolicy();
-                                break;
+                                //checking employee id in database
+                                Console.WriteLine("Employee ID : ");
+                                string employeeid = Console.ReadLine();
+
+                                if (x == employeeid)
+                                {
+                                    createPolicy();
+                                    
+                                    goto begin;
+                                    
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid Credentials!");
+
+                                    Console.WriteLine("");
+                                    Console.WriteLine("");
+                                    Console.WriteLine("");
+
+                                    goto begin;
+                                }
+                                                             
+                                 
+                                
                             case "2":
                                 editPolicy();
+                                goto begin;
                                 break;
+                                
+
 
                             case "3":
                                 deletePolicy();
+                                goto begin;
                                 break;
+                               
+
 
                             case "4":
+                                sendEmail();
+                                goto begin;
                                 break;
+                                
+
 
                             case "5":
-
+                                goto start;
                                 break;
+                                
+
 
                             case "0":
                                 Environment.Exit(0);
                                 break;
+                                
 
                             
                         }
@@ -111,12 +148,13 @@ namespace AOOAD_Assignment
                 case "2":
                     //Jia Yu
                     Console.WriteLine("Enter your ID: ");
-                    x = Console.ReadLine();
+                     x = Console.ReadLine();
 
                     //checking inside the database
                     y = checkCustomer(x);
                     if (y=="Varified")
                     {
+                        stage:
                             Console.WriteLine("==========================================\n" +
                                               "1.List outstanding insurance premiums     \n" +
                                               "2.Pay outstanding insurance premiums      \n" +
@@ -126,7 +164,7 @@ namespace AOOAD_Assignment
                         string choice = Console.ReadLine();
                         if (choice == "1")
                         {
-                            Console.WriteLine("{0, -30}{1, -30}{2, -20}", "startDate", "endDate", "premiumPrice");
+                            Console.WriteLine("{0, -30}{1, -30}{2, -20}", "StartDate", "EndDate", "PremiumPrice");
                             //look for required data in customer list
                             foreach (Customer customer in CustomerList)
                             {
@@ -134,18 +172,18 @@ namespace AOOAD_Assignment
                                 {
                                     foreach (InsurancePolicy i in InsurancePolicyList)
                                     {
-                                        //implement statement
-
-                                        Console.WriteLine("{0, -30}{1, -30}{2, -20}", i.startDate, i.endDate, i.premiumPrice);
+                                        
+                                        Console.WriteLine("{0, -30}{1, -30}{2, -20}", i.StartDate, i.EndDate, i.PremiumPrice);
                                         Console.ReadLine();
                                     }
                                     Console.ReadLine();
                                 }
 
                             }
-
+                            goto stage;
                         }
-                        else if (choice == "2") {
+                        else if (choice == "2")
+                        {
                             Console.WriteLine("Enter Full Name on Credit Card: ");
                             string userName = Convert.ToString(Console.ReadLine());
 
@@ -172,17 +210,28 @@ namespace AOOAD_Assignment
                             Console.WriteLine("{0,-25} {1,-20} {2,-15}", "Date & Time", "Client Name", "Payment Amount");
                             Console.WriteLine("{0,-25} {1,-20} {2,-15}", DateTime.Now, userName, userPayAmt);
                             Console.WriteLine("Paid");
+
+
+                            goto stage;
+                        }
+                        else if (choice == "0")
+                        {
+                            Environment.Exit(0);
+                            break;
                         }
                         else
                         {
                             Console.WriteLine("Invalid Credentials!");
+                            goto start;
                         }
                                   
                     }
                     break;
                 default:
-                    Console.WriteLine("Please try again. You are suggested to choose either 1 or 2. Thank you!");
+                    //Console.WriteLine("Please try again. You are suggested to choose either 1 or 2. Thank you!");
+                    
                     break;
+                    goto start;
             }
             Console.Read();
                 
@@ -278,17 +327,17 @@ namespace AOOAD_Assignment
             //InsurancePolicy List
 
             //Travel
-            Travel_Insurance travel1 = new Travel_Insurance("Active", 0001, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-12-2016"), Convert.ToDateTime("29-12-2018"), "Monthly",200);
+            Travel_Insurance travel1 = new Travel_Insurance("Active","Travel", 0001, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-12-2016"), Convert.ToDateTime("29-12-2018"), "Monthly",200);
             TravelInsuranceList.Add(travel1);
             InsurancePolicyList.Add(travel1);
 
             //Car
-            Car_Insurance car1 = new Car_Insurance("Lapsed", 0002, "Follow the rules.", "100", "Cheque", Convert.ToDateTime("05-04-2016"), Convert.ToDateTime("24-10-2019"), "Yearly", 100);
+            Car_Insurance car1 = new Car_Insurance("Lapsed","Car", 0002, "Follow the rules.", "100", "Cheque", Convert.ToDateTime("05-04-2016"), Convert.ToDateTime("24-10-2019"), "Yearly", 100);
             CarInsuranceList.Add(car1);
             InsurancePolicyList.Add(car1);
 
             //Medical
-            Medical_Insurance medical1 = new Medical_Insurance("Out of Service!", 0003, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-10-2016"), Convert.ToDateTime("29-01-2019"), "One-Time", 1000);
+            Medical_Insurance medical1 = new Medical_Insurance("Out of Service!","Medical", 0003, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-10-2016"), Convert.ToDateTime("29-01-2019"), "One-Time", 1000);
             MedicalInsuranceList.Add(medical1);
             InsurancePolicyList.Add(medical1);
 
@@ -296,23 +345,23 @@ namespace AOOAD_Assignment
             //Employee List
 
             //Junior Agent
-            Junior_Agent junior1 = new Junior_Agent("Leo", "0001", 2, "Travel & Car");
+            Junior_Agent junior1 = new Junior_Agent("Leo", "0001","Junior Agent", "Travel & Car");
             JuniorAgentList.Add(junior1);
             EmployeeList.Add(junior1);
 
             //Agent
-            Agent agent1 = new Agent("Ye Yint", "0002", 5, "Travel & Medical");
+            Agent agent1 = new Agent("Ye Yint", "0002","Agent", "Travel & Medical");
             AgentList.Add(agent1);
             EmployeeList.Add(agent1);
 
             //Senior Agent
-            Senior_Agent senior1 = new Senior_Agent("Jia Yu", "0003", 6, "Medical & Car");
+            Senior_Agent senior1 = new Senior_Agent("Jia Yu", "0003","Senior Agent", "Medical & Car");
             SeniorAgentList.Add(senior1);
             EmployeeList.Add(senior1);
 
 
             //Administrator
-            Administrator admin1 = new Administrator("Sherlock", "0004", 1, "Car");
+            Administrator admin1 = new Administrator("Sherlock", "0004","Admin", "Car");
             AdministratorList.Add(admin1);
             EmployeeList.Add(admin1);
 
@@ -323,14 +372,106 @@ namespace AOOAD_Assignment
         //To create policy
         public static void createPolicy()
         {
+                 
+            //checking customer id in database
+            Console.WriteLine("Customer ID [000x] : ");
+            string userid = Convert.ToString(Console.ReadLine());
+            Customer ct = null;
+            for (int i = 0; i < CustomerList.Count; i++)
+            {
+                if (userid == CustomerList[i].UserID)
+                {
+                    ct = CustomerList[i];
+                    break;
+                }
+                
+
+                else 
+                {
+                    Console.WriteLine("Invalid Credentials!");
+                    createPolicy();
+                    break;
+                }
+                break;
+            }
+            
+
            
+            //Start asking
+            Console.WriteLine("Status[Active | Lapsed | Out of Service!] : ");
+            string status = Console.ReadLine();
+
+            Console.WriteLine("Types Of Policy [Car | Medical | Travel] : ");
+            string typesOfPolicy = Console.ReadLine();
+
+
+            Console.WriteLine("PolicyID [xxx1] : ");
+            int policyID = Convert.ToInt32(Console.ReadLine()); //int and string converting
+
+            Console.WriteLine("Terms & Conditions [Follow the rules.] : ");
+            string termNcondition = Console.ReadLine();
+
+            Console.WriteLine("Payout [2xxx] : ");
+            string payout = Console.ReadLine();
+
+            Console.WriteLine("PaymentTypes [Credit Card | Cheque] : ");
+            string paymentType = Console.ReadLine();
+
+            Console.WriteLine("Start Date [DD-MM-YYYY] : ");
+            DateTime startDate = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("End Date [DD-MM-YYYY] : ");
+            DateTime endDate = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("Premium Type [Monthly | Yearly | One-Time ] :");
+            string premiumType = Console.ReadLine();
+
+            Console.WriteLine("Premium Price [2xxx] : ");
+            double premiumPrice = Convert.ToDouble(Console.ReadLine());
+
+           InsurancePolicy newPolicy = new InsurancePolicy(status, typesOfPolicy, policyID, termNcondition, payout, paymentType, startDate, endDate, premiumType, premiumPrice);
+            InsurancePolicyList.Add(newPolicy);
+            newPolicy.Customer = ct;
+
+
+            Console.WriteLine("A new Policy has been created!");
+            Console.Read();
+            
+
+            /*  if (typesOfPolicy == "Car")
+              {
+                  Car_Insurance newPolicy = new Car_Insurance(status, typesOfPolicy, policyID, termNcondition, payout, paymentType, startDate, endDate, premiumType, premiumPrice);
+                  CarInsuranceList.Add(newPolicy);
+                  InsurancePolicyList.Add(newPolicy);
+
+              }
+
+              else if (typesOfPolicy == "Medical")
+              {
+                  Medical_Insurance newPolicy = new Medical_Insurance(status, typesOfPolicy, policyID, termNcondition, payout, paymentType, startDate, endDate, premiumType, premiumPrice);
+                  MedicalInsuranceList.Add(newPolicy);
+                  InsurancePolicyList.Add(newPolicy);
+              }
+
+              else if (typesOfPolicy == "Travel")
+              {
+                  Travel_Insurance newPolicy = new Travel_Insurance(status, typesOfPolicy, policyID, termNcondition, payout, paymentType, startDate, endDate, premiumType, premiumPrice);
+                  TravelInsuranceList.Add(newPolicy);
+                  InsurancePolicyList.Add(newPolicy);
+              }
+
+      */
+
         }
 
 
         //To edit Policy
         public static void editPolicy()
         {
-
+            Console.WriteLine("Invalid Function At this moment!");
+            Console.Read();
+            
+            
         }
 
         //To delete policy
@@ -340,9 +481,15 @@ namespace AOOAD_Assignment
         //The policy is canceled by the agent because the client cannot be contacted
         public static void deletePolicy()
         {
-
+            Console.WriteLine("Invalid Function At this moment!");
+            Console.Read();
         }
 
+        public static void sendEmail()
+        {
+            Console.WriteLine("Invalid Function At this moment!");
+            Console.Read();
+        }
        
 
     }

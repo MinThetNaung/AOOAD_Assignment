@@ -9,7 +9,7 @@ namespace AOOAD_Assignment
     // Junior Agent is a sub-class of Employee
     class Junior_Agent : Employee
     {
-        public Junior_Agent(string name, string employeeid, int rank, string typeofpolicysold)
+        public Junior_Agent(string name, string employeeid, string rank, string typeofpolicysold)
         {
             EmployeeName = name;
             EmployeeID = employeeid;

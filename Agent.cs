@@ -9,7 +9,7 @@ namespace AOOAD_Assignment
     // Agent is a sub-class of Employee
     class Agent : Employee
     {
-        public Agent(string name, string employeeid, int rank, string typeofpolicysold)
+        public Agent(string name, string employeeid, string rank, string typeofpolicysold)
         {
             EmployeeName = name;
             EmployeeID = employeeid;

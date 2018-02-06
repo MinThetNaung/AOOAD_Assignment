@@ -9,9 +9,10 @@ namespace AOOAD_Assignment
     // Car Insurance is a sub-class of Insurance Policy
     class Car_Insurance : InsurancePolicy
     {
-        public Car_Insurance(string status, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)
+        public Car_Insurance(string status,string typesOfPolicy, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)
         {
             Status = status;
+            TypesOfPolicy = typesOfPolicy;
             PolicyIdentification = policyid;
             TermsAndCondition = termsNcondition;
             PayOut = payout;
