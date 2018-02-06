@@ -8,15 +8,15 @@ namespace AOOAD_Assignment
 {
     class InsurancePolicy
     {
-        private string status;
-        private int policyid;
-        private string termsNcondition;
-        private string payout;  // different policy have different payout
-        private string paymentTypes; //credit card or cheque
-        private DateTime startDate;
-        private DateTime endDate;
-        private string premiumType; // One-time payment, periodic payment (monthly or yearly)
-        private double premiumPrice;
+        public string status;
+        public int policyid;
+        public string termsNcondition;
+        public string payout;  // different policy have different payout
+        public string paymentTypes; //credit card or cheque
+        public DateTime startDate;
+        public DateTime endDate;
+        public string premiumType; // One-time payment, periodic payment (monthly or yearly)
+        public double premiumPrice;
 
        // public List<InsurancePolicy> PolicyList;
 
@@ -24,6 +24,7 @@ namespace AOOAD_Assignment
         private Employee employee;
         private Customer customer;
         private Rider rider;
+        
 
         //Creating property of each attribute
         public string Status

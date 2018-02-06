@@ -66,7 +66,7 @@ namespace AOOAD_Assignment
                     y = checkCustomer(x);
                     if (y=="Varified")
                     {
-                       Console.WriteLine("==========================================\n" +
+                            Console.WriteLine("==========================================\n" +
                                               "1.List outstanding insurance premiums     \n" +
                                               "2.Pay outstanding insurance premiums      \n" +
                                               "0.Exit                                    \n" +
@@ -74,7 +74,7 @@ namespace AOOAD_Assignment
                                               "Enter your option:");
                         string choice = Console.ReadLine();
                         if (choice=="1")
-                        {
+                            {
                             //look for required data in customer list
                             foreach(Customer customer in CustomerList)
                             {
@@ -84,15 +84,15 @@ namespace AOOAD_Assignment
                                     {
                                         //implement statement
                                         Console.ReadLine();
-                                    }
+                            }
                                     Console.ReadLine();
                                 }
                                
                             }
                             
-                        }
+                            }
                         else
-                        {
+                            {
                             Console.WriteLine("Invalid Credentials!");
                         }
                                   
