@@ -8,15 +8,15 @@ namespace AOOAD_Assignment
 {
     class InsurancePolicy
     {
-        public string status;
-        public int policyid;
-        public string termsNcondition;
-        public string payout;  // different policy have different payout
-        public string paymentTypes; //credit card or cheque
-        public DateTime startDate;
-        public DateTime endDate;
-        public string premiumType; // One-time payment, periodic payment (monthly or yearly)
-        public double premiumPrice;
+        private string status;
+        private int policyid;
+        private string termsNcondition;
+        private string payout;  // different policy have different payout
+        private string paymentTypes; //credit card or cheque
+        private DateTime startDate;
+        private DateTime endDate;
+        private string premiumType; // One-time payment, periodic payment (monthly or yearly)
+        private double premiumPrice;
 
        // public List<InsurancePolicy> PolicyList;
 
@@ -24,7 +24,6 @@ namespace AOOAD_Assignment
         private Employee employee;
         private Customer customer;
         private Rider rider;
-        
 
         //Creating property of each attribute
         public string Status
@@ -78,15 +77,7 @@ namespace AOOAD_Assignment
         }
 
 
-        //To delete policy
-        //Policy can be terminated in three ways
-        //If the client decides to cancel the policy, whereupon he must pay a cancellation penalty
-        //If the policy is paid out (either because the terms of coverage occurred or the maturity date is reached)
-        //The policy is canceled by the agent because the client cannot be contacted
-        public void DeletePolicy()
-         {
-
-         }
+        
 
         // to edit the policy
         /*public InsurancePolicy(string status, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)

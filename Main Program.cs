@@ -34,12 +34,12 @@ namespace AOOAD_Assignment
             database();   
             Console.WriteLine("          Welcome from our Life Provident System! \n" +
                               "..........................................................\n"+
-                              ".  Please choose one of the following options:           .\n"+
+                              ".       Please choose one of the following options:      .\n"+
                               ".                                                        .\n"+
                               ".                                                        .\n"+
-                              ".  1. I am an Employee.                                  .\n"+
+                              ".              1. I am an Employee.                      .\n"+
                               ".                                                        .\n"+
-                              ".  2. I am a Customer.                                   .\n"+
+                              ".              2. I am a Customer.                       .\n"+
                               ".                                                        .\n"+
                               "..........................................................\n"+
                               "Option : ");
@@ -53,10 +53,59 @@ namespace AOOAD_Assignment
             //Using Switch case to do variable for a list of values where each value is a case
             switch(answer)
             {
+                //Case 1 start
                 case "1":
-                    //statement
-                    break;
+                    Console.WriteLine("Enter your ID: ");
+                    x = Console.ReadLine();
 
+                    //checking inside the database
+                    y = checkEmployee(x);
+                    if (y == "Varified")
+                    {
+                        Console.WriteLine("=============== Main Menu=================\n" +
+                                          "1.Create Insurance Policy                 \n" +
+                                          "2.Edit Insurance Policy                   \n" +
+                                          "3.Delete Insurance Policy                 \n" +
+                                          "4.Send Auto-Generated Email               \n" +
+                                          "5.Log Out                                 \n" +
+                                          "0.Exit                                    \n" +
+                                          "==========================================\n" +
+                                          "Option : ");
+                        string choice = Console.ReadLine();
+                        switch(choice)
+                        {
+                            case "1":
+                                createPolicy();
+                                break;
+                            case "2":
+                                editPolicy();
+                                break;
+
+                            case "3":
+                                deletePolicy();
+                                break;
+
+                            case "4":
+                                break;
+
+                            case "5":
+
+                                break;
+
+                            case "0":
+                                Environment.Exit(0);
+                                break;
+
+                            
+                        }
+                       
+
+                    }
+                    break;
+                //Case 1 ends
+
+
+                //Case 2 starts
                 case "2":
                     //Jia Yu
                     Console.WriteLine("Enter your ID: ");
@@ -102,8 +151,8 @@ namespace AOOAD_Assignment
                     Console.WriteLine("Please try again. You are suggested to choose either 1 or 2. Thank you!");
                     break;
             }
-            Console.ReadLine();
- 
+            Console.Read();
+                
            
         }
         
@@ -236,6 +285,31 @@ namespace AOOAD_Assignment
 
 
         }
+
+        //To create policy
+        public static void createPolicy()
+        {
+           
+        }
+
+
+        //To edit Policy
+        public static void editPolicy()
+        {
+
+        }
+
+        //To delete policy
+        //Policy can be terminated in three ways
+        //If the client decides to cancel the policy, whereupon he must pay a cancellation penalty
+        //If the policy is paid out (either because the terms of coverage occurred or the maturity date is reached)
+        //The policy is canceled by the agent because the client cannot be contacted
+        public static void deletePolicy()
+        {
+
+        }
+
+       
 
     }
 }
