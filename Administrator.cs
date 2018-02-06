@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AOOAD_Assignment
 {
-    class Administrator
+    //Administrator is a sub-class of Employee
+    class Administrator : Employee
     {
+        //public static Administrator()
     }
 }

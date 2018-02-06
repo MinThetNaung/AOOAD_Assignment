@@ -18,10 +18,10 @@ namespace AOOAD_Assignment
         private string premiumType; // One-time payment, periodic payment (monthly or yearly)
         private double premiumPrice;
 
-
-        private Employee employee;
-        private Customer customer;
-        private Rider rider;
+        public List<InsurancePolicy> PolicyList;
+        //private Employee employee;
+        //private Customer customer;
+        //private Rider rider;
 
         //creating property of each attribute
         public string Status
@@ -61,7 +61,7 @@ namespace AOOAD_Assignment
             get; set;
         }
 
-        public Employee Employee
+      /*  public Employee Employee
         {
             get; set;
         }
@@ -73,7 +73,7 @@ namespace AOOAD_Assignment
         {
             get; set;
         }
-
+        */
 
         //To delete policy
         //Policy can be terminated in three ways

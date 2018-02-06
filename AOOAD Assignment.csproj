@@ -54,6 +54,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="InsurancePolicy.cs" />
     <Compile Include="Junior Agent.cs" />
+    <Compile Include="Main Program.cs" />
     <Compile Include="Medical Insurance.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
