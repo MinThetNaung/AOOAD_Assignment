@@ -28,6 +28,9 @@ namespace AOOAD_Assignment
         //creating customer list
         public static List<Customer> CustomerList = new List<Customer>();
 
+        //creating receipt list
+        public static List<Receipt> ReceiptList = new List<Receipt>();
+
         //implementation of the program
         static void Main(string[] args)
         {
@@ -73,26 +76,60 @@ namespace AOOAD_Assignment
                                               "==========================================\n" +
                                               "Enter your option:");
                         string choice = Console.ReadLine();
-                        if (choice=="1")
-                            {
+                        if (choice == "1")
+                        {
+                            Console.WriteLine("{0, -30}{1, -30}{2, -20}", "startDate", "endDate", "premiumPrice");
                             //look for required data in customer list
-                            foreach(Customer customer in CustomerList)
+                            foreach (Customer customer in CustomerList)
                             {
-                                if(customer.UserID==x)
+                                if (customer.UserID == x)
                                 {
-                                    foreach(InsurancePolicy insurancepolicy in InsurancePolicyList)
+                                    foreach (InsurancePolicy i in InsurancePolicyList)
                                     {
                                         //implement statement
+
+                                        Console.WriteLine("{0, -30}{1, -30}{2, -20}", i.startDate, i.endDate, i.premiumPrice);
                                         Console.ReadLine();
-                            }
+                                    }
                                     Console.ReadLine();
                                 }
-                               
+
                             }
-                            
-                            }
+
+                        }
+                        else if (choice == "2") {
+                            Console.WriteLine("Enter Full Name on Credit Card: ");
+                            string userCreditName = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Enter Credit Card Number: ");
+                            string userCreditNo = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Enter Expiry Date: ");
+                            string userCreditExpiry = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Enter Security Code: ");
+                            string userCreditCode = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Enter Pin: ");
+                            string userCreditPin = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Select Insurance Policy (Medical/Car/Travel): ");
+                            string userPayItem = Convert.ToString(Console.ReadLine());
+
+                            Console.WriteLine("Enter Payment Amount: ");
+                            double userPayAmt = Convert.ToDouble(Console.ReadLine());
+
+                            //Append to Receipt List
+                            Receipt r1 = new Receipt(DateTime.Now, userCreditName, userPayItem, userPayAmt);
+                            receiptList.Add(r1);
+
+                            //Display Receipt
+                            Console.WriteLine("{0,-25} {1,-20} {2,-15} {3,-15}", "Date & Time", "Client Name", "Item", "Payment Amount");
+                            Console.WriteLine("{0,-25} {1,-20} {2,-15} {3,-15}", DateTime.Now, r1.ClientName, r1.PaymentItem, r1.PaymentAmt);
+                            Console.WriteLine("Paid");
+                        }
                         else
-                            {
+                        {
                             Console.WriteLine("Invalid Credentials!");
                         }
                                   
@@ -108,12 +145,13 @@ namespace AOOAD_Assignment
         }
         
        
-      //jiayu part not done need the list parts from you the parameters (cinemaList, movieList, screeningList);
-        public static void displayInsurancePolicyList(List<InsurancePolicy> InsurancePolicyList)
+      //jiayu 
+        /*public static void displayInsurancePolicyList(List<InsurancePolicy> InsurancePolicyList)
         {
-            int count = 1;
-            Console.WriteLine("{0, -4}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", "No ", "Title", "Duration", "Genre", "Classification", "Opening Date");
-            /*foreach (Movie m in movieList)
+             int count = 1;
+            Console.WriteLine("{0, -10}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", "status ", "policyid", "termsNcondition", "payout", "paymentTypes", "startDate", "endDate", "premiumType", "premiumPrice");
+            
+            foreach (Movie m in movieList)
             {
                 List<string> genreList = m.GetGenreList();
                 string genre = "";
@@ -123,8 +161,8 @@ namespace AOOAD_Assignment
                 }
                 Console.WriteLine("{0, -4}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", count, m.Title, m.Duration, genre, m.Classification, m.OpeningDate);
                 count++;
-            }*/
-        }
+            }
+        }*/
 
 
 
@@ -195,17 +233,17 @@ namespace AOOAD_Assignment
             //InsurancePolicy List
 
             //Travel
-            Travel_Insurance travel1 = new Travel_Insurance("Active", 0001, "Follow the rules.", "100", "Credit Card", new DateTime(2010 - 05 - 14), new DateTime(2012 - 05 - 14), "Monthly",200);
+            Travel_Insurance travel1 = new Travel_Insurance("Active", 0001, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-12-2016"), Convert.ToDateTime("29-12-2018"), "Monthly",200);
             TravelInsuranceList.Add(travel1);
             InsurancePolicyList.Add(travel1);
 
             //Car
-            Car_Insurance car1 = new Car_Insurance("Lapsed", 0002, "Follow the rules.", "100", "Cheque", new DateTime(2013 - 08 - 14), new DateTime(2015 - 08 - 14), "Yearly", 100);
+            Car_Insurance car1 = new Car_Insurance("Lapsed", 0002, "Follow the rules.", "100", "Cheque", Convert.ToDateTime("05-04-2016"), Convert.ToDateTime("24-10-2019"), "Yearly", 100);
             CarInsuranceList.Add(car1);
             InsurancePolicyList.Add(car1);
 
             //Medical
-            Medical_Insurance medical1 = new Medical_Insurance("Out of Service!", 0003, "Follow the rules.", "100", "Credit Card", new DateTime(2016 - 02 - 06), new DateTime(2018 - 02 - 06), "One-Time", 1000);
+            Medical_Insurance medical1 = new Medical_Insurance("Out of Service!", 0003, "Follow the rules.", "100", "Credit Card", Convert.ToDateTime("29-10-2016"), Convert.ToDateTime("29-01-2019"), "One-Time", 1000);
             MedicalInsuranceList.Add(medical1);
             InsurancePolicyList.Add(medical1);
 
