@@ -18,12 +18,14 @@ namespace AOOAD_Assignment
         private string premiumType; // One-time payment, periodic payment (monthly or yearly)
         private double premiumPrice;
 
-        public List<InsurancePolicy> PolicyList;
-        //private Employee employee;
-        //private Customer customer;
-        //private Rider rider;
+       // public List<InsurancePolicy> PolicyList;
 
-        //creating property of each attribute
+        //Extension method with other classes
+        private Employee employee;
+        private Customer customer;
+        private Rider rider;
+
+        //Creating property of each attribute
         public string Status
         {
             get; set;
@@ -61,7 +63,7 @@ namespace AOOAD_Assignment
             get; set;
         }
 
-      /*  public Employee Employee
+        public Employee Employee
         {
             get; set;
         }
@@ -73,7 +75,7 @@ namespace AOOAD_Assignment
         {
             get; set;
         }
-        */
+
 
         //To delete policy
         //Policy can be terminated in three ways
@@ -81,8 +83,23 @@ namespace AOOAD_Assignment
         //If the policy is paid out (either because the terms of coverage occurred or the maturity date is reached)
         //The policy is canceled by the agent because the client cannot be contacted
         public void DeletePolicy()
-        {
+         {
 
-        }
+         }
+
+        // to edit the policy
+        /*public InsurancePolicy(string status, int policyid, string termsNcondition, string payout, string paymentTypes, DateTime startDate, DateTime endDate, string premiumType, double premiumPrice)
+        {
+            Status = status;
+            PolicyIdentification = policyid;
+            TermsAndCondition = termsNcondition;
+            PayOut = payout;
+            PaymentType = paymentTypes;
+            StartDate = startDate;
+            EndDate = endDate;
+            PremiumType = premiumType;
+            PremiumPrice = premiumPrice;
+
+        }*/
     }
 }
