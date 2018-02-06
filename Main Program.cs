@@ -43,75 +43,79 @@ namespace AOOAD_Assignment
             string answer = Console.ReadLine();
 
             //local attribute
-            string x;
-            string y;
+            string x; //for ID
+            string y; //for User
 
             //Using Switch case to do variable for a list of values where each value is a case
             switch(answer)
             {
-                case "Option1":
+                case "1":
                     //statement
                     break;
 
-                case "Option2":
-                    //statement
+                case "2":
+                    //Jia Yu
+                    Console.WriteLine("Enter your ID: ");
+                    x = Console.ReadLine();
+
+                    //checking inside the database
+                    y = checkCustomer(x);
+                    if (y=="Varified")
+                    {
+                        bool quit = false;
+                        while (!quit)
+                        {
+                            Console.WriteLine("==========================================\n" +
+                                              "1.List outstanding insurance premiums     \n" +
+                                              "2.Pay outstanding insurance premiums      \n" +
+                                              "0.Exit                                    \n" +
+                                              "==========================================\n" +
+                                              "Enter your option:");
+                            int choice = 0;
+                            try
+                            {
+                                choice = Convert.ToInt32(Console.ReadLine());
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Please enter a valid number");
+                                continue;
+                            }
+                            switch (choice)
+                            {
+                                case 1://1. show outstanding insurance premiums
+                                    Console.WriteLine("\nOption 1. List outstanding insurance premiums\n");
+                                    //displayInsurancePolicyList(InsurancePolicyList);
+                                    break;
+                                case 2: // pay outstanding insurance premiums
+                                    Console.WriteLine("\nOption 2. Pay your outstanding insurance premiums\n");
+                                    break;
+                                case 0:
+                                    return;
+                                default:
+                                    Console.WriteLine("Please enter an option from 0-2");
+                                    break;
+                            }
+                        }
+                        Console.ReadKey();
+                    }
                     break;
                 default:
+                    Console.WriteLine("Please try again. You are suggested to choose either 1 or 2. Thank you!");
                     break;
             }
             Console.ReadLine();
-
-            //jiayu part
-            bool quit = false;
-            while (!quit)
-            {
-                Menu();
-                int choice = 0;
-                try
-                {
-                    choice = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Please enter a valid number");
-                    continue;
-                }
-                switch (choice)
-                {
-                    case 1://1. show outstanding insurance premiums
-                        Console.WriteLine("\nOption 1. List outstanding insurance premiums\n");
-                        displayInsurancePoliciesList(InsurancePoliciesList);
-                        break;
-                    case 2: // pay outstanding insurance premiums
-                        Console.WriteLine("\nOption 2. Pay your outstanding insurance premiums\n");
-                        break;
-                    case 0:
-                        return;
-                    default:
-                        Console.WriteLine("Please enter an option from 0-2");
-                        break;
-                }
-            }
-            Console.ReadKey();
+ 
+           
         }
-        //jiayu part
-        static void Menu()
-        {
-            Console.Write(@"
-          Life Provident System
-==========================================
-1. List outstanding insurance premiums
-2. Pay outstanding insurance premiums
-0. Exit
-==========================================
-Enter your option: ");
-        }
-        //jiayu part not done need the list parts from you the parameters (cinemaList, movieList, screeningList);
-        static void displayInsurancePoliciesList(List<InsurancePolicy> InsurancePoliciesList)
+        
+       
+      //jiayu part not done need the list parts from you the parameters (cinemaList, movieList, screeningList);
+        public void displayInsurancePolicyList(List<InsurancePolicy> InsurancePolicyList)
         {
             int count = 1;
             Console.WriteLine("{0, -4}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", "No ", "Title", "Duration", "Genre", "Classification", "Opening Date");
-            foreach (Movie m in movieList)
+            /*foreach (Movie m in movieList)
             {
                 List<string> genreList = m.GetGenreList();
                 string genre = "";
@@ -121,7 +125,7 @@ Enter your option: ");
                 }
                 Console.WriteLine("{0, -4}{1, -30}{2, -10}{3, -20}{4, -15}{5, -20}", count, m.Title, m.Duration, genre, m.Classification, m.OpeningDate);
                 count++;
-            }
+            }*/
         }
 
 
@@ -139,7 +143,7 @@ Enter your option: ");
                 {
                     Console.WriteLine("Hello, " + Employee.EmployeeName + "\n");
                     check = true;
-                    statusUpdate = "Varified!";
+                    statusUpdate = "Varified";
                     break;
                 }
             }
@@ -164,7 +168,7 @@ Enter your option: ");
                 {
                     Console.WriteLine("Hello, " + Customer.UserName + "\n");
                     check = true;
-                    statusUpdate = "Varified!";
+                    statusUpdate = "Varified";
                     break;
                 }
             }
