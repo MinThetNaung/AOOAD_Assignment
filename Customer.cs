@@ -13,6 +13,8 @@ namespace AOOAD_Assignment
         private string username;
         private string useraddress;
 
+
+       
         //creating property for each attribute
         public string UserID
         {
@@ -35,7 +37,11 @@ namespace AOOAD_Assignment
             UserName = username;
             UserAddress = useraddress;
         }
-        
+
+
+        //retrieving data from insurance policy list
+        public List<InsurancePolicy> InsurancePolicyList;
+
         //to view policy
         public void viewPolicy(string userid)
         {

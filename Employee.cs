@@ -10,7 +10,7 @@ namespace AOOAD_Assignment
     {
         //attributes
         private string employeename;
-        private int employeeid;
+        private string employeeid;
         private int rank;
         private string typeofpolicysold;
 
@@ -19,7 +19,7 @@ namespace AOOAD_Assignment
         {
             get; set;
         }
-        public int EmployeeID
+        public string EmployeeID
         {
             get; set;
         }
