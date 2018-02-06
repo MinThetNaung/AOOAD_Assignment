@@ -20,6 +20,7 @@ namespace AOOAD_Assignment
             EndDate = endDate;
             PremiumType = premiumType;
             PremiumPrice = premiumPrice;
+            //test
 
         }
     }
