@@ -31,7 +31,7 @@ namespace AOOAD_Assignment
         //implementation of the program
         static void Main(string[] args)
         {
-            
+            database();   
             Console.WriteLine("          Welcome from our Life Provident System! \n" +
                               "..........................................................\n"+
                               ".  Please choose one of the following options:           .\n"+
@@ -66,42 +66,36 @@ namespace AOOAD_Assignment
                     y = checkCustomer(x);
                     if (y=="Varified")
                     {
-                        bool quit = false;
-                        while (!quit)
-                        {
-                            Console.WriteLine("==========================================\n" +
+                       Console.WriteLine("==========================================\n" +
                                               "1.List outstanding insurance premiums     \n" +
                                               "2.Pay outstanding insurance premiums      \n" +
                                               "0.Exit                                    \n" +
                                               "==========================================\n" +
                                               "Enter your option:");
-                            int choice = 0;
-                            try
+                        string choice = Console.ReadLine();
+                        if (choice=="1")
+                        {
+                            //look for required data in customer list
+                            foreach(Customer customer in CustomerList)
                             {
-                                choice = Convert.ToInt32(Console.ReadLine());
+                                if(customer.UserID==x)
+                                {
+                                    foreach(InsurancePolicy insurancepolicy in InsurancePolicyList)
+                                    {
+                                        //implement statement
+                                        Console.ReadLine();
+                                    }
+                                    Console.ReadLine();
+                                }
+                               
                             }
-                            catch (Exception)
-                            {
-                                Console.WriteLine("Please enter a valid number");
-                                continue;
-                            }
-                            switch (choice)
-                            {
-                                case 1://1. show outstanding insurance premiums
-                                    Console.WriteLine("\nOption 1. List outstanding insurance premiums\n");
-                                    //displayInsurancePolicyList(InsurancePolicyList);
-                                    break;
-                                case 2: // pay outstanding insurance premiums
-                                    Console.WriteLine("\nOption 2. Pay your outstanding insurance premiums\n");
-                                    break;
-                                case 0:
-                                    return;
-                                default:
-                                    Console.WriteLine("Please enter an option from 0-2");
-                                    break;
-                            }
+                            
                         }
-                        Console.ReadKey();
+                        else
+                        {
+                            Console.WriteLine("Invalid Credentials!");
+                        }
+                                  
                     }
                     break;
                 default:
